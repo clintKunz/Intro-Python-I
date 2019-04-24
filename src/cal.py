@@ -25,10 +25,11 @@ from datetime import datetime
 
 # if no input use datetime
 
-date = input('Enter the date: ')
+date = input('What calendar do you want to see [month] [year]\n')
 list_date = date.split()
 
 def get_date(date):
+  c = calendar.TextCalendar()
   if len(date) == 0:
     month = datetime.now().month
     year = datetime.now().year
@@ -39,6 +40,6 @@ def get_date(date):
   elif len(date) == 2:
     return c.prmonth(int(date[1]), int(date[0]))
   else: 
-    return 'invalid input, should be [month] [year]'
+    print('invalid input, should be [month] [year]')
 
-print(get_date(list_date))
+get_date(list_date)
